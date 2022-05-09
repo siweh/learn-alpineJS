@@ -47,16 +47,13 @@
             <h5>With a Reset, Start and a Stop button</h5>
           <div
             x-data="{ countdown: 60 }"
-            x-init="setInterval(function(){
-                countdown--;
-             }, 1000);
-             "
           >
             <h3 x-text="countdown"></h3>
-            <button @click="countdown=60">Start</button>
+            <button @click="start=setInterval(function(){
+              countdown--;
+           }, 1000)">Start</button>
             <button @click="countdown=60">Reset</button>
-            <button @click="countdown">Stop</button>
-          </div>
+            <button @click="clearInterval(start)">Stop</button>
         </div>
       </div>
       <div class="row">
